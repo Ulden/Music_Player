@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
 /**
  * Created by ulden on 15-5-20.
  */
-public class Interface extends JFrame{
-    static private OperateFunctions opa;
+public class Interface extends JFrame {
+    static private OperateFunctions opa;//=new OperateFunctions();
 
 
     //Construct
@@ -30,7 +30,7 @@ public class Interface extends JFrame{
         JButton backwardButton=new JButton("Backward");
 
         JPanel p=new JPanel();
-        p.setLayout(new GridLayout(1,3));
+        p.setLayout(new GridLayout(1,7));
         p.setBorder(BorderFactory.createTitledBorder("Created By Gioro Ulden"));
 
         p.add(playButton);

@@ -6,18 +6,22 @@ import java.applet.*;
 /**
  * Created by ulden on 15-5-20.
  */
-public class OperateFunctions implements AudioClip{
+public class OperateFunctions {
     private AudioClip currentMusic;
     private File file;
     private AudioClip ac;
+    private PlayList pll;
     //Construct
     public OperateFunctions(){
         //file=new File();
         ac=null;
+        pll=new PlayList();
     }
 
+    private void getCurrentMusic(){
+        //currentMusic=   ;
+    }
     //Operations
-    @Override
     public void play(){
         try{
             ac=Applet.newAudioClip(file.toURI().toURL());
@@ -26,7 +30,6 @@ public class OperateFunctions implements AudioClip{
         }
         currentMusic.play();
     }
-    @Override
     public void loop() {
         try{
             ac=Applet.newAudioClip(file.toURI().toURL());
@@ -35,7 +38,6 @@ public class OperateFunctions implements AudioClip{
         }
         currentMusic.loop();
     }
-    @Override
     public void stop() {
         try{
             ac=Applet.newAudioClip(file.toURI().toURL());
@@ -44,11 +46,15 @@ public class OperateFunctions implements AudioClip{
         }
         currentMusic.stop();
     }
-
     public void pause(){
         this.stop();
     }
     public void nextSong(){
+        try{
+            ac=Applet.newAudioClip(file.toURI().toURL());
+        }catch (MalformedURLException e){
+            e.printStackTrace();
+        }
 
     }
     public void preSong(){
