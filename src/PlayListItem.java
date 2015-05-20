@@ -1,12 +1,14 @@
+import javax.print.DocFlavor;
+
 /**
  * Created by ulden on 15-5-20.
  */
 public class PlayListItem {
     private String name;
-    private String sourceLocation;
+    private DocFlavor.URL sourceLocation;
 
     //Construct Functions
-    public PlayListItem(String name, String sourceLocation){
+    public PlayListItem(String name, DocFlavor.URL sourceLocation){
         this.setName(name);
         this.setSourceLocation(sourceLocation);
     }
@@ -22,10 +24,10 @@ public class PlayListItem {
     public String getName(){
         return this.name;
     }
-    public void setSourceLocation(String str){
-        this.sourceLocation=str;
+    public void setSourceLocation(DocFlavor.URL url){
+        this.sourceLocation=url;
     }
-    public String getSourceLocation(){
+    public DocFlavor.URL getSourceLocation(){
         return sourceLocation;
     }
     //end of gets & sets
