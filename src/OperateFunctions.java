@@ -1,18 +1,17 @@
 import javax.print.DocFlavor;
+import java.io.File;
 import java.net.URL;
 import java.applet.*;
 /**
  * Created by ulden on 15-5-20.
  */
 public class OperateFunctions implements AudioClip{
-    private URL url;
-    private PlayList playlist;
-    private String currentMusicName;
+    static AudioClip currentMusic;
+    static File file;
 
     //Construct
     public OperateFunctions(){
-        url=null;
-        currentMusicName=null;
+
     }
 
     //Operations
