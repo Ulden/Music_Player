@@ -24,6 +24,9 @@ public class PlayList {
         int place = items.indexOf(pli);
         items.remove(place);
     }
+    public void addToList(PlayListItem pli, int place){
+        items.add(place,pli);
+    }
 
 
     //gets & sets
