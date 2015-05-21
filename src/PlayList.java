@@ -51,6 +51,8 @@ public class PlayList {
         int index=items.indexOf(currentItem);
         if(index>1){
             currentItem=items.get(index-1);
+        }else{
+            //tell user there is no more songs to play
         }
     }
 

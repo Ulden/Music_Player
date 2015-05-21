@@ -18,9 +18,14 @@ public class OperateFunctions {
         pll=new PlayList();
     }
 
+
+    //Basic functions
     private void getCurrentMusic(){
         //currentMusic=   ;
+        file=pll.getCurrentItem().getFile();
     }
+
+
     //Operations
     public void play(){
         try{

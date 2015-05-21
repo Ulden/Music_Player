@@ -14,7 +14,7 @@ public class Interface extends JFrame {
     public Interface(){
         opa = new OperateFunctions();
     }
-
+    //Entrance
     public static void main(String [] args){
         JFrame f=new JFrame("Gioro's Music Player");
         f.getContentPane();
