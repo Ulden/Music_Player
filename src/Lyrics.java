@@ -6,10 +6,31 @@ import java.io.File;
 public class Lyrics {
     private File lyricsFile;
     private String name;
+    private String lyctype;
     //Construct
     public Lyrics(File f){
         name=new String(f.getName());
-        lyricsFile=new File(f.getAbsolutePath());
+        lyctype=new String("error");
+        if(fileIsLeagle(f)) {
+            lyricsFile = new File(f.getAbsolutePath());
+        }
+    }
+
+    //functions
+    public boolean fileIsLeagle(File file){
+        if(file.getName()!=null && file.getName().length()>0){
+            int x=file.getName().lastIndexOf('.');
+            if(x>-1 && x<file.getName().length()-1){
+                if(file.getName().substring(x+1)=="txt"){
+                    lyctype="txt";
+                    return true;
+                }else if(file.getName().substring(x+1)=="lrc"){
+                    lyctype="lrc";
+                    return true;
+                }//end of if else
+            }//end of inner if
+        }//end of outer if
+        return false;
     }
 
     //get & set
@@ -20,7 +41,9 @@ public class Lyrics {
         this.name=str;
     }
     public void setLyricsFile(File f){
-        lyricsFile=f;
+        if(fileIsLeagle(f)) {
+            lyricsFile = f;
+        }
     }
     public File getLyricsFile(){
         return lyricsFile;

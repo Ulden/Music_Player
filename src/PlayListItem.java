@@ -15,11 +15,14 @@ public class PlayListItem {
         name=f.getName();
         sourceLocation=f.getAbsolutePath();
         file=new File(f.getAbsolutePath());
-        lrc=new Lyrics(lr);
+        if(isLeagle()) {
+            lrc = new Lyrics(lr);
+        }
     }
     public PlayListItem(String source){
         setFilebyLocation(source);
         name=file.getName();
+        findLyrics();
     }
     public PlayListItem(){
         name=null;
@@ -30,6 +33,21 @@ public class PlayListItem {
         this.setName(pla.getName());
         this.setSourceLocation(pla.getSourceLocation());
         this.setLrc(pla.getLyrics());
+    }
+
+    //functions
+    public boolean isLeagle(){
+        if(this.lrc.getName()==this.getName()){
+            return true;
+        }
+
+        return false;
+    }
+    public void findLyrics(){
+        File f=new File(this.sourceLocation+"/"+name);
+        if(f.exists()){
+            lrc=new Lyrics(f);
+        }
     }
 
     //gets & sets

@@ -18,7 +18,7 @@ public class Interface extends JFrame {
     public static void main(String [] args){
         JFrame f=new JFrame("Gioro's Music Player");
         f.getContentPane();
-        f.setSize(700,400);
+        f.setSize(600,100);
         f.setVisible(true);
         //Buttons
         JButton playButton=new JButton("Play");
@@ -33,7 +33,8 @@ public class Interface extends JFrame {
         p.setLayout(new GridLayout(1,7));
         p.setBorder(BorderFactory.createTitledBorder("Created By Gioro Ulden"));
 
-        f.add(p);
+        f.add(p);//add the panel to the frame, without this sentence the buttons can't be seen
+
         p.add(playButton);
         p.add(pauseButton);
         p.add(loopButton);
