@@ -6,6 +6,7 @@ import java.io.File;
  *
  * Created by ulden on 15-5-20.
  */
+
 public class PlayListItem {
     private String name;
     private String sourceLocation;
