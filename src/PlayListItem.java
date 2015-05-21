@@ -2,6 +2,8 @@ import javax.print.DocFlavor;
 import java.io.File;
 
 /**
+ * Music Files and Lyrics Files are contained in one PlayListItem
+ *
  * Created by ulden on 15-5-20.
  */
 public class PlayListItem {
@@ -37,7 +39,7 @@ public class PlayListItem {
 
     //functions
     public boolean isLeagle(){
-        if(this.lrc.getName()==this.getName()){
+        if(this.lrc.getName().equals(this.getName())){
             return true;
         }
 

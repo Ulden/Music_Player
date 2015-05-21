@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
+ * this is the user interface, Operations are in the OperateFunctions.java
+ *
  * Created by ulden on 15-5-20.
  */
 public class Interface extends JFrame {

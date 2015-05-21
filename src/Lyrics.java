@@ -1,6 +1,8 @@
 import java.io.File;
 
 /**
+ * LyricsFiles
+ *
  * Created by ulden on 15-5-20.
  */
 public class Lyrics {
@@ -18,13 +20,13 @@ public class Lyrics {
 
     //functions
     public boolean fileIsLeagle(File file){
-        if(file.getName()!=null && file.getName().length()>0){
+        if(!file.getName().isEmpty() && file.getName().length()>0){
             int x=file.getName().lastIndexOf('.');
             if(x>-1 && x<file.getName().length()-1){
-                if(file.getName().substring(x+1)=="txt"){
+                if(file.getName().substring(x+1).equals("txt")){
                     lyctype="txt";
                     return true;
-                }else if(file.getName().substring(x+1)=="lrc"){
+                }else if(file.getName().substring(x+1).equals("lrc")){
                     lyctype="lrc";
                     return true;
                 }//end of if else
