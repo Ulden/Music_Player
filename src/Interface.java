@@ -90,4 +90,7 @@ public class Interface extends JFrame {
         });
         //end of clicks
     }
+    public void showMessage(JFrame frame){
+        JOptionPane.showInternalMessageDialog(frame, "There is no more songs","There is no more songs", JOptionPane.INFORMATION_MESSAGE);
+    }
 }

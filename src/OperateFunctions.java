@@ -10,8 +10,8 @@ import java.applet.*;
  */
 public class OperateFunctions {
     private AudioClip currentMusic;
-    private File file;
     private AudioClip ac;
+    private File file;
     private PlayList pll;
     //Construct
     public OperateFunctions(){
