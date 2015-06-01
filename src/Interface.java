@@ -1,19 +1,22 @@
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.MalformedURLException;
 
 /**
  * this is the user interface, Operations are in the OperateFunctions.java
  *
  * Created by ulden on 15-5-20.
  */
+/*
 public class Interface extends JFrame {
     static private OperateFunctions opa;//=new OperateFunctions();
 
 
     //Construct
-    public Interface(){
+    public Interface() throws MalformedURLException {
         opa = new OperateFunctions();
     }
     //Entrance
@@ -94,3 +97,4 @@ public class Interface extends JFrame {
         JOptionPane.showInternalMessageDialog(frame, "There is no more songs","There is no more songs", JOptionPane.INFORMATION_MESSAGE);
     }
 }
+*/

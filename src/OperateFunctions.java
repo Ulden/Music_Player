@@ -14,7 +14,7 @@ public class OperateFunctions {
     private File file;
     private PlayList pll;
     //Construct
-    public OperateFunctions(){
+    public OperateFunctions() throws MalformedURLException {
         //file=new File();
         ac=null;
         pll=new PlayList();
