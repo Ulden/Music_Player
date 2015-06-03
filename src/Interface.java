@@ -21,14 +21,13 @@ public class Interface extends JFrame {
     //Initialize the window
     private void init(){
         //Main window Frames Init
-        JFrame mainFrame = new JFrame("Gioro's Music Player");
-        mainFrame.getContentPane();
 
         JPanel playControl=new JPanel();//put the control buttons here
         JPanel playListPane=new JPanel();//put the playList here
-        JSplitPane pane=new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,playControl,playListPane);
-
-        mainFrame.add(pane);
+        add(playControl);
+        add(playListPane);
+        JSplitPane pane=new JSplitPane(JSplitPane.VERTICAL_SPLIT,playControl,playListPane);
+        add(pane);
 
         //Play Control Buttons init
         JButton playButton = new JButton("Play");

@@ -1,4 +1,3 @@
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -76,8 +75,8 @@ public class PlayList {
     }
     public void saveToFile() throws IOException{
         FileWriter fileWriter=new FileWriter("../files/PlayListFile.txt");
-        for(int i=0; i<items.size();i++){
-            fileWriter.write(String.valueOf(items.get(i)));
+        for (PlayListItem item1 : items) {
+            fileWriter.write(String.valueOf(item1));
         }
         this.playListFile=new File("../file/PlayListFile.txt");
     }
@@ -92,9 +91,9 @@ public class PlayList {
     }
     public PlayListItem getItemByName(String str){
         PlayListItem tmpItem=new PlayListItem();
-        for (int i = 0; i<items.size();i++){
-            if(items.get(i).getName().equals(str)){
-                tmpItem=items.get(i);
+        for (PlayListItem item1 : items) {
+            if (item1.getName().equals(str)) {
+                tmpItem = item1;
                 break;
             }
         }
