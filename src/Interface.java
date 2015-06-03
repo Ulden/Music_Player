@@ -49,6 +49,8 @@ public class Interface extends JFrame {
 
         //show playlist
 
+
+
         //add Actions to the Play Control Buttons
         ActionListener listener=new ControlActionListener();
 
