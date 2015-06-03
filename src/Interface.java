@@ -10,91 +10,69 @@ import java.net.MalformedURLException;
  *
  * Created by ulden on 15-5-20.
  */
-/*
+
 public class Interface extends JFrame {
-    static private OperateFunctions opa;//=new OperateFunctions();
-
-
     //Construct
-    public Interface() throws MalformedURLException {
-        opa = new OperateFunctions();
+
+
+    public Interface(){
+        init();
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    //Entrance
-    public static void main(String [] args){
-        JFrame f=new JFrame("Gioro's Music Player");
-        f.getContentPane();
-        f.setSize(600,100);
-        f.setVisible(true);
-        //Buttons
-        JButton playButton=new JButton("Play");
-        JButton pauseButton=new JButton("Pause");
-        JButton loopButton=new JButton("Loop");
-        JButton nextButton=new JButton("Next Song");
-        JButton preButton=new JButton("Previous Song");
-        JButton forwardButton=new JButton("Forward");
-        JButton backwardButton=new JButton("Backward");
 
-        JPanel p=new JPanel();
-        p.setLayout(new GridLayout(1,7));
-        p.setBorder(BorderFactory.createTitledBorder("Created By Gioro Ulden"));
+    //Initialize the window
+    private void init(){
+        //Main window Frames Init
+        JFrame mainFrame = new JFrame("Gioro's Music Player");
+        mainFrame.getContentPane();
 
-        f.add(p);//add the panel to the frame, without this sentence the buttons can't be seen
+        JPanel playControl=new JPanel();//put the control buttons here
+        JPanel playListPane=new JPanel();//put the playList here
+        JSplitPane pane=new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,playControl,playListPane);
 
-        p.add(playButton);
-        p.add(pauseButton);
-        p.add(loopButton);
-        p.add(nextButton);
-        p.add(preButton);
-        p.add(forwardButton);
-        p.add(backwardButton);
+        mainFrame.add(pane);
 
-        //reaction to the click
-        playButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                opa.play();
-            }
-        });
-        pauseButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                opa.pause();
-            }
-        });
-        loopButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                opa.loop();
-            }
-        });
-        nextButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                opa.nextSong();
-            }
-        });
-        preButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                opa.preSong();
-            }
-        });
-        forwardButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                opa.forward();
-            }
-        });
-        backwardButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                opa.backward();
-            }
-        });
-        //end of clicks
+        //Play Control Buttons init
+        JButton playButton = new JButton("Play");
+        JButton pauseButton = new JButton("Pause");
+        JButton loopButton = new JButton("Loop");
+        JButton nextButton = new JButton("Next Song");
+        JButton preButton = new JButton("Previous Song");
+        JButton forwardButton = new JButton("Forward");
+        JButton backwardButton = new JButton("Backward");
+
+        playControl.add(playButton);
+        playControl.add(pauseButton);
+        playControl.add(loopButton);
+        playControl.add(nextButton);
+        playControl.add(preButton);
+        playControl.add(forwardButton);
+        playControl.add(backwardButton);
+
+        //show playlist
+
+        //add Actions to the Play Control Buttons
+        ActionListener listener=new ControlActionListener();
+
+        playButton.addActionListener(listener);
+        pauseButton.addActionListener(listener);
+        loopButton.addActionListener(listener);
+        nextButton.addActionListener(listener);
+        preButton.addActionListener(listener);
+        forwardButton.addActionListener(listener);
+        backwardButton.addActionListener(listener);
     }
+
+
+    //The "main" function
+    public static void main(String [] args) {
+        Interface mainWindow=new Interface();
+        mainWindow.setBounds(100,100,310,260);
+        mainWindow.setTitle("Gioro's Music Player");
+    }
+
     public void showMessage(JFrame frame){
         JOptionPane.showInternalMessageDialog(frame, "There is no more songs","There is no more songs", JOptionPane.INFORMATION_MESSAGE);
     }
 }
-*/
