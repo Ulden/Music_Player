@@ -1,4 +1,4 @@
-import javax.swing.*;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -18,18 +18,26 @@ public class PlayList {
     private PlayListItem currentItem;
 
     //Construct functions
-    public PlayList() throws MalformedURLException {
+    public PlayList(){
         name="New Play List";
         items=null;
         item=new PlayListItem();
-        currentItem=new PlayListItem(items.get(0));
+        try {
+            currentItem=new PlayListItem(items.get(0));
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
         playListFile=new File("../lrc/"+name);
     }
-    public PlayList(String name) throws MalformedURLException {
+    public PlayList(String name) {
         this.name=name;
         items=null;
         item=new PlayListItem();
-        currentItem=new PlayListItem(items.get(0));
+        try {
+            currentItem=new PlayListItem(items.get(0));
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
         playListFile=new File("../lrc/"+this.name);
     }
 

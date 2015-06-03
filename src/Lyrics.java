@@ -11,8 +11,8 @@ public class Lyrics {
     private String lyctype;
     //Construct
     public Lyrics(File f){
-        name=new String(f.getName());
-        lyctype=new String("error");
+        name= f.getName();
+        lyctype= "error";
         if(fileIsLeagle(f)) {
             lyricsFile = new File(f.getAbsolutePath());
         }
@@ -46,6 +46,9 @@ public class Lyrics {
         if(fileIsLeagle(f)) {
             lyricsFile = f;
         }
+    }
+    public String getLyctype(){
+        return this.lyctype;
     }
     public File getLyricsFile(){
         return lyricsFile;

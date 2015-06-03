@@ -1,9 +1,7 @@
-import javax.print.DocFlavor;
-import java.awt.event.ActionListener;
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.io.File;
 import java.net.MalformedURLException;
-import java.net.URL;
-import java.applet.*;
 /**
  * All the Operations are here
  *

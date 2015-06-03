@@ -1,9 +1,6 @@
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.MalformedURLException;
 
 /**
  * this is the user interface, Operations are in the OperateFunctions.java
@@ -18,7 +15,7 @@ public class Interface extends JFrame {
     public Interface(){
         init();
         setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
     //Initialize the window
@@ -72,7 +69,4 @@ public class Interface extends JFrame {
         mainWindow.setTitle("Gioro's Music Player");
     }
 
-    public void showMessage(JFrame frame){
-        JOptionPane.showInternalMessageDialog(frame, "There is no more songs","There is no more songs", JOptionPane.INFORMATION_MESSAGE);
-    }
 }
