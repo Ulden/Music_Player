@@ -15,45 +15,25 @@ public class OperateFunctions {
         //file=new File();
         currentMusic=null;
         File ListOfPlayList=new File("../playLists.txt");
-        String name;//get name of playlist from the PlayList.txt file.
-        playList=new PlayList(name);
-
+        String defaultname;//get name of playlist from the PlayList.txt file.
+        ListOfPlayList=
+        playList=new PlayList(defaultname);
     }
 
     //Operations
     public void play(){
-        try{
-            ac=Applet.newAudioClip(file.toURI().toURL());
-        }catch (MalformedURLException e){
-            e.printStackTrace();
-        }
-        currentMusic.play();
+
     }
     public void loop() {
-        try{
-            ac=Applet.newAudioClip(file.toURI().toURL());
-        }catch (MalformedURLException e){
-            e.printStackTrace();
-        }
-        currentMusic.loop();
+
     }
     public void stop() {
-        try{
-            ac=Applet.newAudioClip(file.toURI().toURL());
-        }catch (MalformedURLException e){
-            e.printStackTrace();
-        }
-        currentMusic.stop();
+
     }
     public void pause(){
         this.stop();
     }
     public void nextSong(){
-        try{
-            ac=Applet.newAudioClip(file.toURI().toURL());
-        }catch (MalformedURLException e){
-            e.printStackTrace();
-        }
 
     }
     public void preSong(){
