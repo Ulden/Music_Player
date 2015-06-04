@@ -1,28 +1,35 @@
-import java.applet.Applet;
 import java.applet.AudioClip;
 import java.io.File;
-import java.net.MalformedURLException;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 /**
  * All the Operations are here
  *
  * Created by ulden on 15-5-20.
  */
-public class OperateFunctions {
+public class OperateFunctions {;
     private AudioClip currentMusic;
     private PlayList playList;
     //Construct
     public OperateFunctions(){
         //file=new File();
         currentMusic=null;
-        File ListOfPlayList=new File("../playLists.txt");
-        String defaultname;//get name of playlist from the PlayList.txt file.
-        ListOfPlayList=
+        String defaultname = null;//get name of playlist from the PlayList.txt file.
+        try {
+            Scanner scanner=new Scanner(new File("../playLists.txt"));
+            while (scanner.hasNextLine()){
+                defaultname=scanner.nextLine();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         playList=new PlayList(defaultname);
     }
 
     //Operations
     public void play(){
-
+        currentMusic=playList.getCurrentItem().getName()
     }
     public void loop() {
 
@@ -34,10 +41,12 @@ public class OperateFunctions {
         this.stop();
     }
     public void nextSong(){
-
+        playList.setCurrentItem(playList.getCurrentItemIndex()+1);
+        this.play();
     }
     public void preSong(){
-
+        playList.setCurrentItem((playList.getCurrentItemIndex()-1));
+        this.play();
     }
     public void forward(){
 

@@ -48,4 +48,10 @@ public class PlayList {
     public void setCurrentItem(int index){
         currentItem=items.get(index);
     }
+    public PlayListItem getCurrentItem(){
+        return currentItem;
+    }
+    public int getCurrentItemIndex(){
+        return items.indexOf(currentItem);
+    }
 }
