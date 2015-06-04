@@ -15,7 +15,7 @@ public class PlayListItem {
     private Lyrics lrc;
 
     //Constructer
-    public PlayListItem(String name, String source,Lyrics lrc){
+    public PlayListItem(String name, String source, Lyrics lrc){
         this.name=name;
         this.sourceLocation=source;
         this.lrc=lrc;

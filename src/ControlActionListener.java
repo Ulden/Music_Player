@@ -1,6 +1,5 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.MalformedURLException;
 /**
  * Action Listener for the Buttons
  *
@@ -9,11 +8,7 @@ import java.net.MalformedURLException;
 public class ControlActionListener implements ActionListener {
     OperateFunctions opa;
     public ControlActionListener(){
-        try {
-            opa=new OperateFunctions();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+        opa=new OperateFunctions();
     }
     @Override
     public void actionPerformed(ActionEvent e) {

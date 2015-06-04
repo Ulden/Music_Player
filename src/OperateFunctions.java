@@ -9,23 +9,16 @@ import java.net.MalformedURLException;
  */
 public class OperateFunctions {
     private AudioClip currentMusic;
-    private AudioClip ac;
-    private File file;
-    private PlayList pll;
+    private PlayList playList;
     //Construct
-    public OperateFunctions() throws MalformedURLException {
+    public OperateFunctions(){
         //file=new File();
-        ac=null;
-        pll=new PlayList();
+        currentMusic=null;
+        File ListOfPlayList=new File("../playLists.txt");
+        String name;//get name of playlist from the PlayList.txt file.
+        playList=new PlayList(name);
+
     }
-
-
-    //Basic functions
-    private void getCurrentMusic(){
-        //currentMusic=   ;
-        file=pll.getCurrentItem().getFile();
-    }
-
 
     //Operations
     public void play(){
