@@ -1,7 +1,7 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.MalformedURLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,100 +10,42 @@ import java.util.List;
  * Created by ulden on 15-5-20.
  */
 public class PlayList {
-    private PlayListItem item;
     private List <PlayListItem> items;
     private String name;
     private File playListFile;
     private PlayListItem currentItem;
 
-    //Construct functions
-    public PlayList(){
-        name="New Play List";
-        items=null;
-        item=new PlayListItem();
-        try {
-            currentItem=new PlayListItem(items.get(0));
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        playListFile=new File("../lrc/"+name);
-    }
-    public PlayList(String name) {
+    //constructor
+    public PlayList(String name){
         this.name=name;
-        items=null;
-        item=new PlayListItem();
+        playListFile=new File(this.name+".txt");
+        currentItem=null;
+        items=new ArrayList<PlayListItem>();
+        writeToFile();
+    }
+
+    public void writeToFile(){
         try {
-            currentItem=new PlayListItem(items.get(0));
-        } catch (MalformedURLException e) {
+            FileWriter fileWriter=new FileWriter(playListFile,true);
+            for (PlayListItem item : items) {
+                fileWriter.write(item.getName() + ' ' + item.getSourceLocation() + '\n');
+            }
+            fileWriter.flush();
+            fileWriter.close();
+        } catch (IOException e) {
             e.printStackTrace();
         }
-        playListFile=new File("../lrc/"+this.name);
     }
 
-
-    //Functions
-    public void appendToList(PlayListItem pli){
-        items.add(pli);
-    }
-    public void removeFromList(PlayListItem pli){
-        int place = items.indexOf(pli);
-        items.remove(place);
-    }
-    public void addToList(PlayListItem pli, int place){
-        items.add(place,pli);
-    }
-    public boolean nextItem(){
-        int index=items.indexOf(currentItem);
-        if(index<items.size()-1) {
-            currentItem = items.get(index + 1);
-            return true;
-        }else{
-            //tell user there is no more songs to play
-            return false;
+    public void addItemsToList(PlayListItem item){
+        items.add(items.size(),item);
+        if(currentItem==null){
+            currentItem=items.get(items.size()-1);
         }
-    }
-    public boolean previousItem(){
-        int index=items.indexOf(currentItem);
-        if(index>1){
-            currentItem=items.get(index-1);
-            return true;
-        }else{
-            //tell user there is no more songs to play
-            //JOptionPane.showInternalMessageDialog(frame, "information","information", JOptionPane.INFORMATION_MESSAGE);
-            return false;
-        }
-    }
-    public void saveToFile() throws IOException{
-        FileWriter fileWriter=new FileWriter("../files/PlayListFile.txt");
-        for (PlayListItem item1 : items) {
-            fileWriter.write(String.valueOf(item1));
-        }
-        this.playListFile=new File("../file/PlayListFile.txt");
+        writeToFile();
     }
 
-
-    //gets & sets
-    public void setName(String str){
-        this.name=str;
+    public void setCurrentItem(int index){
+        currentItem=items.get(index);
     }
-    public String getName(){
-        return this.name;
-    }
-    public PlayListItem getItemByName(String str){
-        PlayListItem tmpItem=new PlayListItem();
-        for (PlayListItem item1 : items) {
-            if (item1.getName().equals(str)) {
-                tmpItem = item1;
-                break;
-            }
-        }
-        return tmpItem;
-    }
-    public PlayListItem getItemByOrder(int ord){
-        return items.get(ord);
-    }
-    public PlayListItem getCurrentItem(){
-        return currentItem;
-    }
-    //end of gets & sets
 }

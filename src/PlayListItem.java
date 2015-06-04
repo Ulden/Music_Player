@@ -11,10 +11,19 @@ import java.net.URL;
 
 public class PlayListItem {
     private String name;
-    private URL sourceLocation;
-    private File file;
+    private String sourceLocation;
     private Lyrics lrc;
 
+    //Constructer
+    public PlayListItem(String name, String source,Lyrics lrc){
+        this.name=name;
+        this.sourceLocation=source;
+        this.lrc=lrc;
+    }
+
+    public String getName(){return name;}
+    public String getSourceLocation(){return sourceLocation;}
+    /*
     //Construct Functions
     public PlayListItem(File f, File lr) throws MalformedURLException {
         name=f.getName();
@@ -53,10 +62,10 @@ public class PlayListItem {
         if(f.exists()){
             lrc=new Lyrics(f);
         }
-    }
+    }*/
 
     //gets & sets
-    public void setName(String str){
+    /**public void setName(String str){
         this.name=str;
     }
     public String getName(){
@@ -79,6 +88,8 @@ public class PlayListItem {
     }
     public void setLrc(Lyrics l){
         lrc=l;
-    }
+    }**/
+
+
     //end of gets & sets
 }
